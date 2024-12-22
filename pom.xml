@@ -38,6 +38,7 @@
     <modules>
         <module>DummyProject1</module>
         <module>DummyProject2</module>
+        <module>DummyProject3</module>
     </modules>
 
     <build>
