@@ -9,10 +9,10 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.fastturtle</groupId>
-    <artifactId>DummyParent</artifactId>
+    <artifactId>spring-boot-module-parent</artifactId>
     <version>1.0</version>
-    <name>DummyParent</name>
-    <description>DummyParent</description>
+    <name>spring-boot-module-parent</name>
+    <description>Spring Boot Module Parent</description>
 
     <packaging>pom</packaging>
 
@@ -31,9 +31,9 @@
     </dependencyManagement>
 
     <modules>
-        <module>DummyProject1</module>
-        <module>DummyProject2</module>
-        <module>DummyProject3</module>
+        <module>Oauth-authorization-server</module>
+        <module>spring-security-oauth-client</module>
+        <module>oauth-resource-server</module>
     </modules>
 
     <build>
