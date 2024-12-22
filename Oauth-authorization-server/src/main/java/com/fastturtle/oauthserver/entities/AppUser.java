@@ -16,7 +16,6 @@ public class AppUser extends BaseModel {
 
     private String username;
 
-    @Column(length = 60)
     private String password;
 
     private String email;
