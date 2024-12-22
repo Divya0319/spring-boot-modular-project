@@ -1,0 +1,13 @@
+server:
+  port: 9000
+
+spring:
+  application:
+    name: oauth-authorization-server
+  datasource:
+    url: jdbc:mysql://localhost:3306/userregistration?useSSL=false&serverTimezone=UTC
+    username: scalerstudent
+    password: scalerstudent
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    show-sql: true
