@@ -1,0 +1,37 @@
+spring:
+  application:
+    name: spring-security-oauth-client
+  datasource:
+    url: jdbc:mysql://localhost:3306/userregistration?useSSL=false&serverTimezone=UTC
+    username: scalerstudent
+    password: scalerstudent
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    show-sql: true
+
+    hibernate:
+      ddl-auto: update
+
+  security:
+    oauth2:
+      client:
+        registration:
+          api-client-oidc:
+            provider: spring
+            client-id: 1UAgiN6lFlofeKektGe8shev
+            client-secret: gFXMW7o3glw3pJtk2FjbxfCpqgnEttcsQl_83pW8fTc_cO4E
+            authorization-grant-type: authorization_code
+            redirect-uri: "http://127.0.0.1:8080/login/oauth2/code/{registrationId}"
+            scope: openid
+            client-name: api-client-oidc
+          api-client-authorization-code:
+            provider: spring
+            client-id: 1UAgiN6lFlofeKektGe8shev
+            client-secret: gFXMW7o3glw3pJtk2FjbxfCpqgnEttcsQl_83pW8fTc_cO4E
+            authorization-grant-type: authorization_code
+            redirect-uri: "http://127.0.0.1:8080/authorized"
+            scope: api.read
+            client-name: api-client-authorization-code
+        provider:
+          spring:
+            issuer-uri: http://auth-server:9000

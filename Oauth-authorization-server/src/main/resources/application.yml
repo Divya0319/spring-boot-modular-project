@@ -12,6 +12,9 @@ spring:
   jpa:
     show-sql: true
 
+    hibernate:
+      ddl-auto: update
+
 oauth2:
   client:
     id: 1UAgiN6lFlofeKektGe8shev
