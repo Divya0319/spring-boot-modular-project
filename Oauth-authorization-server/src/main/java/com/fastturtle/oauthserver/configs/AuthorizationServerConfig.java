@@ -54,7 +54,10 @@ public class AuthorizationServerConfig {
                 .formLogin(Customizer.withDefaults())
                 .apply(authorizationServerConfigurer);
 
-        return http.formLogin(Customizer.withDefaults()).build();
+        http.getConfigurer(OAuth2AuthorizationServerConfigurer.class)
+                .oidc(Customizer.withDefaults());
+
+        return http.build();
     }
 
     @Bean
@@ -108,7 +111,7 @@ public class AuthorizationServerConfig {
     @Bean
     public AuthorizationServerSettings authorizationServerSettings() {
         return AuthorizationServerSettings.builder()
-                .issuer("http://auth-server:9000")
+                .issuer("http://localhost:9000")
                 .build();
     }
 }

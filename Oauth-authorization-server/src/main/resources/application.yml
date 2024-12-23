@@ -12,10 +12,12 @@ spring:
   jpa:
     show-sql: true
 
-    hibernate:
-      ddl-auto: update
-
 oauth2:
   client:
     id: 1UAgiN6lFlofeKektGe8shev
     secret: gFXMW7o3glw3pJtk2FjbxfCpqgnEttcsQl_83pW8fTc_cO4E
+
+logging:
+  level:
+    org.springframework.security: DEBUG
+    org.springframework.web: DEBUG
