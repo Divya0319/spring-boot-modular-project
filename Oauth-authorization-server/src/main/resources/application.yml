@@ -14,7 +14,7 @@ spring:
 
 oauth2:
   client:
-    id: 1UAgiN6lFlofeKektGe8shev
+    id: FastTurtle
     secret: gFXMW7o3glw3pJtk2FjbxfCpqgnEttcsQl_83pW8fTc_cO4E
 
 logging:

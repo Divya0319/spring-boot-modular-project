@@ -19,7 +19,6 @@ import org.springframework.security.oauth2.core.oidc.OidcScopes;
 import org.springframework.security.oauth2.server.authorization.client.InMemoryRegisteredClientRepository;
 import org.springframework.security.oauth2.server.authorization.client.RegisteredClient;
 import org.springframework.security.oauth2.server.authorization.client.RegisteredClientRepository;
-import org.springframework.security.oauth2.server.authorization.config.annotation.web.configuration.OAuth2AuthorizationServerConfiguration;
 import org.springframework.security.oauth2.server.authorization.config.annotation.web.configurers.OAuth2AuthorizationServerConfigurer;
 import org.springframework.security.oauth2.server.authorization.settings.AuthorizationServerSettings;
 import org.springframework.security.oauth2.server.authorization.settings.ClientSettings;
@@ -31,7 +30,7 @@ import java.security.interfaces.RSAPrivateKey;
 import java.security.interfaces.RSAPublicKey;
 import java.util.UUID;
 
-@Configuration(proxyBeanMethods = false)
+@Configuration
 public class AuthorizationServerConfig {
 
     @Autowired
@@ -48,16 +47,14 @@ public class AuthorizationServerConfig {
     public SecurityFilterChain authServerSecurityFilterChain(HttpSecurity http) throws Exception {
 
         OAuth2AuthorizationServerConfigurer authorizationServerConfigurer = OAuth2AuthorizationServerConfigurer.authorizationServer();
+        authorizationServerConfigurer.oidc(Customizer.withDefaults());
 
         http
                 .securityMatcher(authorizationServerConfigurer.getEndpointsMatcher())
-                .formLogin(Customizer.withDefaults())
                 .apply(authorizationServerConfigurer);
 
-        http.getConfigurer(OAuth2AuthorizationServerConfigurer.class)
-                .oidc(Customizer.withDefaults());
 
-        return http.build();
+        return http.formLogin(Customizer.withDefaults()).build();
     }
 
     @Bean
@@ -111,7 +108,7 @@ public class AuthorizationServerConfig {
     @Bean
     public AuthorizationServerSettings authorizationServerSettings() {
         return AuthorizationServerSettings.builder()
-                .issuer("http://localhost:9000")
+                .issuer("http://auth-server:9000")
                 .build();
     }
 }

@@ -20,7 +20,7 @@ spring:
         registration:
           api-client-oidc:
             provider: spring
-            client-id: 1UAgiN6lFlofeKektGe8shev
+            client-id: FastTurtle
             client-secret: gFXMW7o3glw3pJtk2FjbxfCpqgnEttcsQl_83pW8fTc_cO4E
             authorization-grant-type: authorization_code
             redirect-uri: "http://127.0.0.1:8080/login/oauth2/code/{registrationId}"
@@ -28,7 +28,7 @@ spring:
             client-name: api-client-oidc
           api-client-authorization-code:
             provider: spring
-            client-id: 1UAgiN6lFlofeKektGe8shev
+            client-id: FastTurtle
             client-secret: gFXMW7o3glw3pJtk2FjbxfCpqgnEttcsQl_83pW8fTc_cO4E
             authorization-grant-type: authorization_code
             redirect-uri: "http://127.0.0.1:8080/authorized"
@@ -36,7 +36,7 @@ spring:
             client-name: api-client-authorization-code
         provider:
           spring:
-            issuer-uri: http://localhost:9000
+            issuer-uri: http://auth-server:9000
 
 logging:
   level:
